@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("/assets/fonts/BricolageGrotesque[opsz,wdth,wght].woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Outfit";
+  src: url("/assets/fonts/Outfit[wght].woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: url("/assets/fonts/CabinetGrotesk[wght].woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+    /* Dark vibrant theme for competitive quiz game */
+    --background: 0.12 0.015 260;
+    --foreground: 0.97 0.01 90;
+    --card: 0.16 0.02 255;
+    --card-foreground: 0.95 0.01 90;
+    --popover: 0.18 0.025 255;
+    --popover-foreground: 0.95 0.01 90;
+    /* Electric orange primary */
+    --primary: 0.72 0.19 48;
+    --primary-foreground: 0.10 0.01 260;
+    /* Deep navy secondary */
+    --secondary: 0.22 0.04 255;
+    --secondary-foreground: 0.90 0.01 90;
+    --muted: 0.20 0.025 255;
+    --muted-foreground: 0.62 0.04 255;
+    /* Gold accent */
+    --accent: 0.82 0.18 76;
+    --accent-foreground: 0.10 0.01 260;
+    --destructive: 0.65 0.25 27;
+    --destructive-foreground: 0.97 0.01 90;
+    --border: 0.28 0.04 255;
+    --input: 0.22 0.03 255;
+    --ring: 0.72 0.19 48;
+    /* Chart colors */
+    --chart-1: 0.72 0.19 48;
+    --chart-2: 0.65 0.22 145;
+    --chart-3: 0.55 0.18 264;
+    --chart-4: 0.82 0.18 76;
+    --chart-5: 0.65 0.25 27;
+    /* Sidebar */
+    --sidebar: 0.14 0.02 260;
+    --sidebar-foreground: 0.95 0.01 90;
+    --sidebar-primary: 0.72 0.19 48;
+    --sidebar-primary-foreground: 0.10 0.01 260;
+    --sidebar-accent: 0.20 0.03 255;
+    --sidebar-accent-foreground: 0.90 0.01 90;
+    --sidebar-border: 0.25 0.03 255;
+    --sidebar-ring: 0.72 0.19 48;
+    /* Game-specific tokens */
+    --game-success: 0.72 0.22 145;
+    --game-error: 0.65 0.25 27;
+    --game-warning: 0.82 0.18 76;
+    --game-glow-orange: 0.72 0.19 48;
+    --game-surface: 0.14 0.025 255;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Outfit", sans-serif;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: "Bricolage Grotesque", sans-serif;
+  }
+}
+
+/* Game-specific utilities */
+@layer utilities {
+  .text-game-success {
+    color: oklch(var(--game-success));
+  }
+  .bg-game-success {
+    background-color: oklch(var(--game-success));
+  }
+  .text-game-error {
+    color: oklch(var(--game-error));
+  }
+  .bg-game-error {
+    background-color: oklch(var(--game-error));
+  }
+  .text-game-warning {
+    color: oklch(var(--game-warning));
+  }
+  .bg-game-warning {
+    background-color: oklch(var(--game-warning));
+  }
+  .glow-primary {
+    box-shadow: 0 0 20px oklch(var(--game-glow-orange) / 0.4), 0 0 40px oklch(var(--game-glow-orange) / 0.15);
+  }
+  .glow-success {
+    box-shadow: 0 0 20px oklch(var(--game-success) / 0.4);
+  }
+  .glow-error {
+    box-shadow: 0 0 20px oklch(var(--game-error) / 0.4);
+  }
+  .game-card {
+    background: oklch(var(--card));
+    border: 1px solid oklch(var(--border));
+    border-radius: var(--radius);
+  }
+  .bg-mesh {
+    background-image:
+      radial-gradient(ellipse at 20% 50%, oklch(0.72 0.19 48 / 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, oklch(0.55 0.18 264 / 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 60% 80%, oklch(0.65 0.22 145 / 0.06) 0%, transparent 50%);
+  }
+}
